@@ -278,6 +278,7 @@ h1{
 audio{
     width:100%;
     height:42px;
+    display:block;
 }
 
 /* SEPARADOR */
@@ -429,7 +430,6 @@ audio{
     <span>♥</span>
 </div>
 
-
 <div class="container">
 
 <div class="card">
@@ -437,7 +437,7 @@ audio{
     <!-- PORTADA -->
 
     <div class="badge">
-        Algo pequeño para vos
+        Algo especial para vos
     </div>
 
     <h1>
@@ -465,6 +465,8 @@ audio{
         class="hidden"
     >
 
+        <!-- FOTO -->
+
         <div class="photo-box">
 
             <img
@@ -476,7 +478,7 @@ audio{
         </div>
 
         <div class="photo-caption">
-            Para vos, con cariño ❤️
+            Para vos, amigo ❤️
         </div>
 
 
@@ -498,10 +500,14 @@ audio{
 
             <div class="music-icon"></div>
 
-            <audio controls>
+            <audio
+                id="musicPlayer"
+                controls
+                preload="auto"
+            >
 
                 <source
-                    src="3AM - Distancia.mp3"
+                    src="./Morat%20-%20A%20Dónde%20Vamos.mp3"
                     type="audio/mpeg"
                 >
 
@@ -534,7 +540,7 @@ audio{
         </div>
 
 
-        <!-- MENSAJE -->
+        <!-- MENSAJE FINAL -->
 
         <div
             id="finalMessage"
@@ -558,17 +564,17 @@ audio{
                 </p>
 
                 <p>
-                    A veces no hace falta un motivo enorme
-                    para querer sacarle una sonrisa
-                    a alguien. 😊
+                    Porque una buena amistad también
+                    merece momentos lindos, recuerdos
+                    y algún que otro detalle inesperado. 😊
                 </p>
 
                 <p>
                     Así que disfrutá la canción,
                     mirá la sorpresa y quedate con algo:
                     <b>
-                        alguien pensó en vos y quiso
-                        regalarte un momento lindo.
+                        esta pequeña sorpresa la hice
+                        especialmente para vos.
                     </b>
                     ✨
                 </p>
@@ -603,11 +609,28 @@ function mostrarSorpresa(){
     const boton =
         document.getElementById("startBtn");
 
+    const musica =
+        document.getElementById("musicPlayer");
+
     boton.style.display="none";
 
     sorpresa.classList.remove("hidden");
 
     sorpresa.classList.add("show");
+
+    /*
+     * Intentar reproducir la canción
+     * después del toque del usuario.
+     */
+
+    musica.play().catch(function(error){
+
+        console.log(
+            "El navegador no permitió la reproducción automática:",
+            error
+        );
+
+    });
 
     setTimeout(function(){
 
