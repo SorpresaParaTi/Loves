@@ -1,0 +1,481 @@
+<!DOCTYPE html><html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Una sorpresa para vos ❤️</title><style>
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Pacifico&display=swap');
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    min-height:100vh;
+    background:
+        radial-gradient(circle at 50% 0%,#42152f 0%,#180b18 42%,#070509 100%);
+    color:white;
+    font-family:'DM Sans',sans-serif;
+    overflow-x:hidden;
+}
+
+body:before,
+body:after{
+    content:"";
+    position:fixed;
+    width:280px;
+    height:280px;
+    border-radius:50%;
+    filter:blur(110px);
+    pointer-events:none;
+    opacity:.15;
+}
+
+body:before{
+    background:#ff3978;
+    top:-100px;
+    left:-100px;
+}
+
+body:after{
+    background:#853cff;
+    right:-120px;
+    bottom:-100px;
+}
+
+/* CORAZONES */
+
+.hearts span{
+    position:fixed;
+    bottom:-40px;
+    color:#ff5a8d;
+    opacity:0;
+    font-size:18px;
+    animation:float 9s linear infinite;
+    pointer-events:none;
+}
+
+.hearts span:nth-child(1){left:10%;animation-delay:0s}
+.hearts span:nth-child(2){left:30%;animation-delay:3s}
+.hearts span:nth-child(3){left:55%;animation-delay:6s}
+.hearts span:nth-child(4){left:78%;animation-delay:2s}
+.hearts span:nth-child(5){left:92%;animation-delay:5s}
+
+@keyframes float{
+    0%{
+        transform:translateY(0);
+        opacity:0;
+    }
+
+    15%{
+        opacity:.35;
+    }
+
+    100%{
+        transform:translateY(-110vh) rotate(20deg);
+        opacity:0;
+    }
+}
+
+/* CONTENEDOR */
+
+.container{
+    width:100%;
+    max-width:500px;
+    margin:auto;
+    padding:25px 16px 60px;
+    position:relative;
+    z-index:2;
+}
+
+/* CARD */
+
+.card{
+    padding:28px 18px 25px;
+    border-radius:32px;
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,255,255,.10);
+    box-shadow:0 30px 90px rgba(0,0,0,.55);
+    backdrop-filter:blur(18px);
+    text-align:center;
+}
+
+/* PORTADA */
+
+.badge{
+    font-size:11px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:#ff91b0;
+    margin-bottom:15px;
+}
+
+h1{
+    margin:0;
+    font-family:'Pacifico',cursive;
+    font-size:37px;
+    font-weight:400;
+}
+
+.subtitle{
+    margin:14px auto 0;
+    max-width:350px;
+    color:rgba(255,255,255,.62);
+    line-height:1.7;
+    font-size:14px;
+}
+
+/* BOTÓN INICIAL */
+
+.start-btn{
+    margin-top:28px;
+    border:0;
+    padding:16px 25px;
+    border-radius:999px;
+    background:linear-gradient(100deg,#ff3975,#ff6696);
+    color:white;
+    font-size:15px;
+    font-weight:700;
+    cursor:pointer;
+    box-shadow:0 12px 35px rgba(255,50,110,.30);
+    transition:.25s;
+}
+
+.start-btn:active{
+    transform:scale(.95);
+}
+
+/* CONTENIDO OCULTO */
+
+.hidden{
+    display:none;
+}
+
+/* ANIMACIÓN */
+
+.show{
+    animation:showContent 1s ease forwards;
+}
+
+@keyframes showContent{
+    from{
+        opacity:0;
+        transform:translateY(35px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* SEPARADOR */
+
+.line{
+    margin:30px 10px;
+    height:1px;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,100,150,.35),
+        transparent
+    );
+}
+
+/* REGALO */
+
+.gift-section{
+    padding-top:5px;
+}
+
+.gift-title{
+    font-size:13px;
+    color:rgba(255,255,255,.55);
+    margin-bottom:18px;
+}
+
+.gift{
+    font-size:85px;
+    display:inline-block;
+    cursor:pointer;
+    filter:drop-shadow(0 15px 20px rgba(255,50,100,.25));
+    animation:giftIdle 1.8s ease-in-out infinite;
+    transition:.3s;
+}
+
+.gift:active{
+    transform:scale(.88);
+}
+
+@keyframes giftIdle{
+    0%,100%{
+        transform:translateY(0) rotate(0);
+    }
+
+    50%{
+        transform:translateY(-8px) rotate(-2deg);
+    }
+}
+
+/* REGALO ABIERTO */
+
+.gift-open{
+    animation:giftOpen .8s ease forwards;
+}
+
+@keyframes giftOpen{
+    0%{
+        transform:scale(1);
+    }
+
+    40%{
+        transform:scale(1.25) rotate(-5deg);
+    }
+
+    100%{
+        transform:scale(0);
+        opacity:0;
+    }
+}
+
+/* MENSAJE FINAL */
+
+.final-message{
+    margin-top:5px;
+    padding:25px 20px;
+    border-radius:26px;
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(255,70,125,.18),
+            transparent 65%
+        ),
+        rgba(255,255,255,.04);
+    border:1px solid rgba(255,90,140,.25);
+    animation:messageOpen 1s ease;
+}
+
+@keyframes messageOpen{
+    from{
+        opacity:0;
+        transform:translateY(30px) scale(.94);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+.final-heart{
+    font-size:35px;
+}
+
+.final-message h2{
+    margin:10px 0 15px;
+    font-family:'Pacifico',cursive;
+    font-size:27px;
+    font-weight:400;
+    color:#ff86aa;
+}
+
+.final-message p{
+    color:rgba(255,255,255,.72);
+    font-size:14px;
+    line-height:1.75;
+}
+
+.signature{
+    margin-top:20px;
+    color:#ff8fac;
+    font-family:'Pacifico',cursive;
+    font-size:20px;
+}
+
+/* FOOTER */
+
+.footer{
+    margin-top:25px;
+    font-size:10px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:rgba(255,255,255,.25);
+}
+
+</style></head><body><div class="hearts">
+    <span>♥</span>
+    <span>♡</span>
+    <span>♥</span>
+    <span>♡</span>
+    <span>♥</span>
+</div><div class="container"><div class="card"><!-- PORTADA -->
+
+<div class="badge">
+    Algo pequeño para vos
+</div>
+
+<h1>
+    Tengo algo para vos ❤️
+</h1>
+
+<p class="subtitle">
+    No te voy a decir qué es todavía...
+    primero tenés que descubrirlo.
+</p>
+
+<button
+    class="start-btn"
+    id="startBtn"
+    onclick="mostrarSorpresa()"
+>
+    ✨ Quiero verlo
+</button>
+
+
+<!-- SORPRESA -->
+
+<div
+    id="sorpresa"
+    class="hidden"
+>
+
+    <div class="line"></div>
+
+    <!-- REGALO -->
+
+    <div class="gift-section">
+
+        <div class="gift-title">
+            Y todavía falta una última cosa...
+        </div>
+
+        <div
+            class="gift"
+            id="gift"
+            onclick="abrirRegalo()"
+        >
+            🎁
+        </div>
+
+    </div>
+
+
+    <!-- MENSAJE -->
+
+    <div
+        id="finalMessage"
+        class="hidden"
+    >
+
+        <div class="final-message">
+
+            <div class="final-heart">
+                💌
+            </div>
+
+            <h2>
+                Una última cosita...
+            </h2>
+
+            <p>
+                No sé si esperabas encontrarte
+                con algo así, pero simplemente
+                quería hacerte un pequeño detalle.
+            </p>
+
+            <p>
+                A veces no hace falta un motivo enorme
+                para querer sacarle una sonrisa
+                a alguien. 😊
+            </p>
+
+            <p>
+                Así que disfrutá la sorpresa
+                y quedate con algo:
+                <b>
+                    alguien pensó en vos y quiso
+                    regalarte un momento lindo.
+                </b>
+                ✨
+            </p>
+
+            <div class="signature">
+                Espero haberte sacado una sonrisa ❤️
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="footer">
+    Hecho con cariño ♥
+</div>
+
+</div></div><script>
+
+function mostrarSorpresa(){
+
+    const sorpresa =
+        document.getElementById("sorpresa");
+
+    const boton =
+        document.getElementById("startBtn");
+
+    boton.style.display="none";
+
+    sorpresa.classList.remove("hidden");
+
+    sorpresa.classList.add("show");
+
+    setTimeout(function(){
+
+        sorpresa.scrollIntoView({
+            behavior:"smooth",
+            block:"start"
+        });
+
+    },250);
+
+}
+
+
+function abrirRegalo(){
+
+    const regalo =
+        document.getElementById("gift");
+
+    const mensaje =
+        document.getElementById("finalMessage");
+
+    regalo.classList.add("gift-open");
+
+    setTimeout(function(){
+
+        regalo.style.display="none";
+
+        mensaje.classList.remove("hidden");
+
+        mensaje.classList.add("show");
+
+        setTimeout(function(){
+
+            mensaje.scrollIntoView({
+                behavior:"smooth",
+                block:"center"
+            });
+
+        },150);
+
+    },650);
+
+}
+
+</script></body>
+  </html>
